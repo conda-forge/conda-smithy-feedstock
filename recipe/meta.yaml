@@ -1,0 +1,20 @@
+package:
+  name: conda-smithy
+  version: 0.1.0dev
+
+source:
+  git_url: https://github.com/conda-forge/conda-smithy.git
+  git_tag: fa524b8a53ace66e8e2a6d59ef472cb46aaecdbc
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - setuptools
+    - conda
+    - conda-build
+    - Jinja2
+    - requests
+
