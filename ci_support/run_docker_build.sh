@@ -5,7 +5,7 @@
 FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 RECIPE_ROOT=$FEEDSTOCK_ROOT/recipe
 
-UPLOAD_OWNER="[]"
+UPLOAD_OWNER="conda-forge"
 UPLOAD_CHANNEL="main"
 
 docker info
