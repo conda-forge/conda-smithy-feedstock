@@ -30,7 +30,9 @@ cat << EOF | docker run -i \
                         pelson/obvious-ci:latest_x64 \
                         bash || exit $?
 
+export BINSTAR_TOKEN=${BINSTAR_TOKEN}
 export PYTHONUNBUFFERED=1
+
 echo "$config" > ~/.condarc
 # A lock sometimes occurs with incomplete builds. The lock file is stored in build_artefacts.
 conda clean --lock
