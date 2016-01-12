@@ -5,14 +5,13 @@
 FEEDSTOCK_ROOT=$(cd "$(dirname "$0")/.."; pwd;)
 RECIPE_ROOT=$FEEDSTOCK_ROOT/recipe
 
-UPLOAD_OWNER="conda-forge"
-UPLOAD_CHANNEL="main"
-
 docker info
 
 config=$(cat <<CONDARC
 
 channels:
+
+ - conda-forge
 
  - defaults # As we need conda-build
 
@@ -28,7 +27,7 @@ cat << EOF | docker run -i \
                         -v ${RECIPE_ROOT}:/recipe_root \
                         -v ${FEEDSTOCK_ROOT}:/feedstock_root \
                         -a stdin -a stdout -a stderr \
-                        pelson/conda64_obvious_ci \
+                        pelson/obvious-ci:latest_x64 \
                         bash || exit $?
 
 export PYTHONUNBUFFERED=1
@@ -39,28 +38,32 @@ conda clean --lock
 conda info
 
 
-conda build --no-test /recipe_root || exit 1
+# Embarking on 3 case(s).
 
-EOF
+    set -x
+    export CONDA_PY=27
+    set +x
+    conda build /recipe_root --quiet || exit 1
+    
+    /feedstock_root/ci_support/upload_or_check_non_existence.py /recipe_root conda-forge --channel=main || exit 1
+    
+    
 
+    set -x
+    export CONDA_PY=34
+    set +x
+    conda build /recipe_root --quiet || exit 1
+    
+    /feedstock_root/ci_support/upload_or_check_non_existence.py /recipe_root conda-forge --channel=main || exit 1
+    
+    
 
-# In a separate docker, run the test...
-cat << EOF | docker run -i \
-                        -v ${RECIPE_ROOT}:/recipe_root \
-                        -v ${FEEDSTOCK_ROOT}:/feedstock_root \
-                        -a stdin -a stdout -a stderr \
-                        pelson/conda64_obvious_ci \
-                        bash || exit $?
-
-export BINSTAR_TOKEN=${BINSTAR_TOKEN}
-export PYTHONUNBUFFERED=1
-echo "$config" > ~/.condarc
-
-conda info
-
-
-conda build --test /recipe_root || exit 1
-/feedstock_root/ci_support/upload_or_check_non_existence.py /recipe_root $UPLOAD_OWNER --channel=$UPLOAD_CHANNEL || exit 1
-
-
+    set -x
+    export CONDA_PY=35
+    set +x
+    conda build /recipe_root --quiet || exit 1
+    
+    /feedstock_root/ci_support/upload_or_check_non_existence.py /recipe_root conda-forge --channel=main || exit 1
+    
+    
 EOF

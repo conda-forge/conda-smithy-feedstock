@@ -13,8 +13,29 @@ requirements:
   run:
     - python
     - setuptools
+    - conda-build-all
     - conda
     - conda-build
-    - Jinja2
+    - jinja2
     - requests
+    - pycrypto
+    - gitpython
+    - pygithub <2
+    - ruamel.yaml
 
+test:
+    imports:
+        - conda_smithy
+        - conda_smithy.ci_register
+        - conda_smithy.configure_feedstock
+    commands:
+        - conda smithy --help
+
+about:
+    home: https://github.com/conda-forge/conda-smithy
+    license: BSD 3
+    summary: The tool for managing conda-forge feedstocks
+
+extra:
+    recipe-maintainers:
+        - pelson

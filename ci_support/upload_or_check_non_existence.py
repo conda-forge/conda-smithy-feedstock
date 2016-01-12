@@ -29,14 +29,18 @@ def built_distribution_already_exists(cli, meta, owner):
         dist_info = {}
 
     exists = bool(dist_info)
-    if exists:
-        md5_on_binstar = dist_info.get('md5')
-        with open(fname, 'rb') as fh:
-            md5_of_build = hashlib.md5(fh.read()).hexdigest()
-
-        if md5_on_binstar != md5_of_build:
-            raise ValueError('This build ({}), and the build already on binstar '
-                             '({}) are different.'.format(md5_of_build, md5_on_binstar))
+    # Unfortunately, we cannot check the md5 quality of the built distribution, as
+    # this will depend on fstat information such as modification date (because
+    # distributions are tar files). Therefore we can only assume that the distribution
+    # just built, and the one on anaconda.org are the same.
+#    if exists:
+#        md5_on_binstar = dist_info.get('md5')
+#        with open(fname, 'rb') as fh:
+#            md5_of_build = hashlib.md5(fh.read()).hexdigest()
+#
+#        if md5_on_binstar != md5_of_build:
+#            raise ValueError('This build ({}), and the build already on binstar '
+#                             '({}) are different.'.format(md5_of_build, md5_on_binstar))
     return exists
 
 
@@ -44,7 +48,7 @@ def upload(cli, meta, owner, channels):
     try:
         with open('binstar.token', 'w') as fh:
             fh.write(cli.token)
-        subprocess.check_call(['binstar', '--quiet', '-t', 'binstar.token',
+        subprocess.check_call(['anaconda', '--quiet', '-t', 'binstar.token',
                                'upload', bldpkg_path(meta),
                                '--user={}'.format(owner),
                                '--channel={}'.format(channels)],
@@ -78,7 +82,7 @@ def add_distribution_to_channel(binstar_cli, meta, owner, channel='main'):
     binstar_cli.add_channel(channel, owner, meta.name(), meta.version())
 
 
-if __name__ == '__main__':
+def main():
     token = os.environ.get('BINSTAR_TOKEN')
 
     description = ('Upload or check consistency of a built version of a '
@@ -94,6 +98,9 @@ if __name__ == '__main__':
 
     cli = get_binstar(argparse.Namespace(token=token, site=None))
     meta = MetaData(recipe_dir)
+    if meta.skip():
+        print("No upload to take place - this configuration was skipped in build/skip.")
+        return
     exists = built_distribution_already_exists(cli, meta, owner)
     if token:
         on_channel = distribution_exists_on_channel(cli, meta, owner, channel)
@@ -105,10 +112,13 @@ if __name__ == '__main__':
                   ''.format(bldpkg_path(meta), owner, channel))
             add_distribution_to_channel(cli, meta, owner, channel)
         else:
-            print('Distribution {} already \nexists on {}\'s {} channel (md5 has been '
-                  'checked for consistency)'.format(bldpkg_path(meta), owner, channel))
+            print('Distribution {} already \nexists on {}\'s {} channel.'
+                  ''.format(bldpkg_path(meta), owner, channel))
     else:
         print("No BINSTAR_TOKEN present, so no upload is taking place. "
               "The distribution just built {} already available on {}'s "
               "{} channel.".format('is' if exists else 'is not',
                                    owner, channel))
+
+if __name__ == '__main__':
+    main()
