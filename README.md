@@ -73,6 +73,11 @@ Linux: [![Circle CI](https://circleci.com/gh/conda-forge/conda-smithy-feedstock.
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/conda-smithy-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/conda-smithy-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/conda-smithy-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/conda-smithy-feedstock/branch/master)
 
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/conda-smithy/badges/version.svg)](https://anaconda.org/conda-forge/conda-smithy)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/conda-smithy/badges/downloads.svg)](https://anaconda.org/conda-forge/conda-smithy)
+
 
 Updating conda-smithy-feedstock
 ===============================
