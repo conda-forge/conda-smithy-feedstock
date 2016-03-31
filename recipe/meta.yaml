@@ -1,4 +1,4 @@
-{% set version = "0.7.1" %}
+{% set version = "0.7.2" %}
 
 package:
   name: conda-smithy
@@ -39,7 +39,7 @@ test:
 
 about:
     home: https://github.com/conda-forge/conda-smithy
-    license: BSD 3
+    license: BSD 3-clause
     summary: The tool for managing conda-forge feedstocks
 
 extra:
