@@ -10,7 +10,7 @@ source:
   sha256: 9c008025f3198b1f89f3fda48aca79b14773f6ae3d16271576cf893a34f489be
 
 build:
-  number: 1
+  number: 2
   script: python setup.py install --single-version-externally-managed --record=record.txt
   entry_points:
     - feedstocks = conda_smithy.feedstocks:main
