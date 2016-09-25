@@ -10,8 +10,8 @@ source:
   sha256: b4788d1fbd5859181ed470eb300794e7b54129aa72e1680168c4ec6258f1428f
 
 build:
-    number: 1
-    script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
@@ -31,19 +31,19 @@ requirements:
     - ruamel.yaml
 
 test:
-    imports:
-        - conda_smithy
-        - conda_smithy.ci_register
-        - conda_smithy.configure_feedstock
-    commands:
-        - conda smithy --help
+  imports:
+    - conda_smithy
+    - conda_smithy.ci_register
+    - conda_smithy.configure_feedstock
+  commands:
+    - conda smithy --help
 
 about:
-    home: https://github.com/conda-forge/conda-smithy
-    license: BSD 3-clause
-    summary: The tool for managing conda-forge feedstocks
+  home: https://github.com/conda-forge/conda-smithy
+  license: BSD 3-clause
+  summary: The tool for managing conda-forge feedstocks
 
 extra:
-    recipe-maintainers:
-        - jakirkham
-        - pelson
+  recipe-maintainers:
+    - jakirkham
+    - pelson
