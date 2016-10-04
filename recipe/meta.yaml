@@ -7,7 +7,7 @@ package:
 source:
   fn: conda-smithy-v{{ version }}.tar.gz
   url: https://github.com/conda-forge/conda-smithy/archive/v{{ version }}.tar.gz
-  sha256: ba596c8a931a34678581d64b3c05f0221b11b4e594083f54cbf24773d9d44c6e
+  sha256: 4782f19956163793fe056ac44df7bbbf881a2caabb51543f084e19a28ae1e974
 
 build:
   number: 0
@@ -51,3 +51,4 @@ extra:
   recipe-maintainers:
     - jakirkham
     - pelson
+    - ocefpaf
