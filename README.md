@@ -33,7 +33,6 @@ conda search conda-smithy --channel conda-forge
 ```
 
 
-
 About conda-forge
 =================
 
