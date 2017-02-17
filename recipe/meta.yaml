@@ -7,7 +7,7 @@ package:
 source:
   fn: conda-smithy-v{{ version }}.tar.gz
   url: https://github.com/conda-forge/conda-smithy/archive/v{{ version }}.tar.gz
-  sha256: 52a45f9e4af6fb9391e69693e18bc44685a35ceec3e6d8e361c29ce06f1572c9
+  sha256: f80bc079f9dca57c14d5ee3f264fe66aa4c0c6c31f6bbb722d254cedbe603927
 
 build:
   number: 0
