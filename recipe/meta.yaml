@@ -1,4 +1,4 @@
-{% set version = "2.2.1" %}
+{% set version = "2.2.2" %}
 
 package:
   name: conda-smithy
@@ -7,7 +7,7 @@ package:
 source:
   fn: conda-smithy-v{{ version }}.tar.gz
   url: https://github.com/conda-forge/conda-smithy/archive/v{{ version }}.tar.gz
-  sha256: 06e30685c1d9a898a3785b9419de492f84fd5924fe6b3ab4444da1e924f031e6
+  sha256: 232156b46eca72e72e9d8149326ae0def644e55837ae7dbd80307b1a6daccc2f
 
 build:
   number: 0
@@ -22,7 +22,7 @@ requirements:
     - setuptools
   run:
     - python
-    - conda-build-all >=1.0.2
+    - conda-build-all >=1.0.3
     - conda
     - conda-build >=1.21.12,!=2.0.9
     - jinja2
