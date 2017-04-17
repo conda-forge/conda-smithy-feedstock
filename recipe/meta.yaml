@@ -10,8 +10,11 @@ source:
   sha256: aae0a55de7466702f84c2cd4128768c64d62bc135c14003f8ab6f1dfe5e33243
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 1
+  script:
+    - python setup.py install --single-version-externally-managed --record=record.txt
+    - rm -r "${PREFIX}/bin/conda"           # [unix]
+    - del /f /q "%PREFIX%\\Scripts\\conda"  # [win]
   entry_points:
     - feedstocks = conda_smithy.feedstocks:main
     - conda-smithy = conda_smithy.cli:main
