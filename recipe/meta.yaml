@@ -1,4 +1,4 @@
-{% set version = "2.4.4" %}
+{% set version = "2.4.5" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 084cd819b39c8999d6844cbb2be1df7dd0b105902554d657ec48c585cc5776f0
+  sha256: b6e8e93de0240278d9cf2edd10bb972c5063e6f4653ecc9335f7db6b4ecfc65d
 
 build:
   number: 0
@@ -26,7 +26,7 @@ requirements:
   run:
     - python
     - conda-build-all >=1.1.1
-    - conda
+    - conda <4.4
     - conda-build >=1.21.12,!=2.0.9
     - jinja2
     - requests
