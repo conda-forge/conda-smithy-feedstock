@@ -9,7 +9,7 @@ source:
   sha256: b6e8e93de0240278d9cf2edd10bb972c5063e6f4653ecc9335f7db6b4ecfc65d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - python setup.py install --single-version-externally-managed --record=record.txt
@@ -27,7 +27,7 @@ requirements:
     - python
     - conda-build-all >=1.1.1
     - conda <4.4
-    - conda-build >=1.21.12,!=2.0.9
+    - conda-build 2.1.*
     - jinja2
     - requests
     - pycrypto
