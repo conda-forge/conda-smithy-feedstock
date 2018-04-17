@@ -27,7 +27,7 @@ requirements:
   run:
     - python
     - conda >=4.2
-    - conda-build >=3.0
+    - conda-build >=3.8.1
     - jinja2
     - requests
     - pycrypto
