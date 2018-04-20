@@ -20,9 +20,9 @@ All platforms:
 Current release info
 ====================
 
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy)
-[![Conda Version](https://img.shields.io/conda/vn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy)
-[![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy)
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-conda--smithy-green.svg)](https://anaconda.org/conda-forge/conda-smithy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy) |
 
 Installing conda-smithy
 =======================
