@@ -43,8 +43,8 @@ test:
     - conda_smithy.configure_feedstock
   commands:
     - conda smithy --help
-    - py.test
-  files:
+    - py.test .
+  source_files:
     - tests/*
   requires:
     - pytest
