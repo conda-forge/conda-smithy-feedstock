@@ -14,12 +14,15 @@ Summary: The tool for managing conda-forge feedstocks
 Current build status
 ====================
 
-All platforms: [![Circle CI](https://circleci.com/gh/conda-forge/conda-smithy-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/conda-smithy-feedstock)
+All platforms:
+[![noarch](https://img.shields.io/circleci/project/github/conda-forge/conda-smithy-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/conda-smithy-feedstock)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/conda-smithy/badges/version.svg)](https://anaconda.org/conda-forge/conda-smithy)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/conda-smithy/badges/downloads.svg)](https://anaconda.org/conda-forge/conda-smithy)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-conda--smithy-green.svg)](https://anaconda.org/conda-forge/conda-smithy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/conda-smithy.svg)](https://anaconda.org/conda-forge/conda-smithy) |
 
 Installing conda-smithy
 =======================
@@ -64,6 +67,7 @@ To manage the continuous integration and simplify feedstock maintenance
 Using the ``conda-forge.yml`` within this repository, it is possible to re-render all of
 this feedstock's supporting files (e.g. the CI configuration files) with ``conda smithy rerender``.
 
+For more information please check the [conda-forge documentation](https://conda-forge.org/docs/).
 
 Terminology
 ===========
