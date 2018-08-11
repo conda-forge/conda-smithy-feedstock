@@ -12,7 +12,7 @@ build:
   number: 0
   noarch: python
   script:
-    - python -m pip install --no-deps --ignore-installed .
+    - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
     - rm -f "${PREFIX}/bin/conda"           # [not win]
     - del /f /q "%PREFIX%\\Scripts\\conda"  # [win]
   entry_points:
@@ -23,7 +23,6 @@ requirements:
   build:
     - python
     - pip
-    - setuptools
   run:
     - python
     - conda >=4.2
