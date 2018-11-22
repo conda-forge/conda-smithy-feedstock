@@ -21,10 +21,10 @@ build:
 
 requirements:
   build:
-    - python
+    - python >=3.6
     - pip
   run:
-    - python
+    - python >=3.6
     - conda >=4.2
     - conda-build >=3.8.1
     - jinja2
@@ -34,6 +34,7 @@ requirements:
     - pygithub <2
     - ruamel.yaml
     - conda-forge-pinning
+    - vsts-python-api
 
 test:
   imports:
@@ -59,3 +60,4 @@ extra:
     - scopatz
     - isuruf-bot
     - CJ-Wright
+    - mariusvniekerk
