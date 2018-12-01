@@ -20,11 +20,11 @@ build:
     - conda-smithy = conda_smithy.cli:main
 
 requirements:
-  build:
-    - python
+  host:
+    - python >=3.6 
     - pip
   run:
-    - python
+    - python >=3.6
     - conda >=4.2
     - conda-build >=3.8.1
     - jinja2
