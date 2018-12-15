@@ -20,7 +20,7 @@ build:
     - conda-smithy = conda_smithy.cli:main
 
 requirements:
-  build:
+  host:
     - python
     - pip
   run:
