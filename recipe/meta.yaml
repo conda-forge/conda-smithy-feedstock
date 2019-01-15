@@ -1,4 +1,4 @@
-{% set version = "3.2.2" %}
+{% set version = "3.2.3" %}
 
 package:
   name: conda-smithy
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 3745e6a6d244d0769a5520824aba08c19de494f0bbdcd4bd092955b158b1d59c
+  sha256: 3d9d22af1233ec083c20e2f4d9d8c1dd49adfcfd2b0637398a44ce4bcc5ca9d9
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
