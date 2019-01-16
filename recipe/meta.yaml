@@ -30,6 +30,7 @@ requirements:
     - jinja2
     - requests
     - pycrypto
+    - git
     - gitpython
     - pygithub <2
     - ruamel.yaml
