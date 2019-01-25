@@ -44,12 +44,13 @@ test:
     - conda_smithy.configure_feedstock
   commands:
     - conda smithy --help
+    - if ! [[ $(git config --get user.name) ]]; then git config --local user.name "Testy McTest"; fi
+    - if ! [[ $(git config --get user.email) ]]; then git config --local user.email "tmactest@test.org"; fi
     - py.test .
   source_files:
     - tests/*
   requires:
     - pytest
-
 
 about:
   home: https://github.com/conda-forge/conda-smithy
