@@ -1,4 +1,4 @@
-{% set version = "3.2.13" %}
+{% set version = "3.2.14" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 23a3a6e778362e8f278bbb7e7877a5f6719420ba7861f66518ec8a173a725308
+  sha256: 537880175d7f98bc145fa0aa90982513652d94e2382cd53440b44a8388511c5c
 
 build:
   number: 0
