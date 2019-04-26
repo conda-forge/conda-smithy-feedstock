@@ -54,10 +54,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - jakirkham
-    - pelson
-    - ocefpaf
-    - isuruf
-    - scopatz
-    - isuruf-bot
-    - CJ-Wright
+    - conda-forge/Core
