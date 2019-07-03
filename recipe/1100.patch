@@ -1,0 +1,34 @@
+From f969a8d835163f92b2119251c86f725bd70d10f0 Mon Sep 17 00:00:00 2001
+From: Isuru Fernando <isuruf@gmail.com>
+Date: Tue, 2 Jul 2019 11:24:20 -0500
+Subject: [PATCH] Fix configuring appveyor on repos starting with an underscore
+
+---
+ conda_smithy/ci_register.py | 2 ++
+ news/appveyor_.rst          | 3 +++
+ 2 files changed, 5 insertions(+)
+ create mode 100644 news/appveyor_.rst
+
+diff --git a/conda_smithy/ci_register.py b/conda_smithy/ci_register.py
+index 7dae790c..f435c079 100755
+--- a/conda_smithy/ci_register.py
++++ b/conda_smithy/ci_register.py
+@@ -208,6 +208,8 @@ def appveyor_configure(user, project):
+     """Configure appveyor so that it skips building if there is no appveyor.yml present."""
+     headers = {"Authorization": "Bearer {}".format(appveyor_token)}
+     # I have reasons to believe this is all AppVeyor is doing to the API URL.
++    if project.startswith("_"):
++        project = project[1:]
+     project = project.replace("_", "-").replace(".", "-")
+     url = "https://ci.appveyor.com/api/projects/{}/{}/settings".format(
+         user, project
+diff --git a/news/appveyor_.rst b/news/appveyor_.rst
+new file mode 100644
+index 00000000..867b3adc
+--- /dev/null
++++ b/news/appveyor_.rst
+@@ -0,0 +1,3 @@
++**Fixed:**
++
++* Fix configuring appveyor on repos starting with an underscore
+
