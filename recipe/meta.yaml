@@ -11,7 +11,7 @@ source:
     - 1102.diff
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
@@ -28,7 +28,7 @@ requirements:
   run:
     - python >=3.6
     - conda >=4.2
-    - conda-build >=3.18.3
+    - conda-build
     - jinja2
     - requests
     - pycrypto

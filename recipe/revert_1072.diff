@@ -1,0 +1,32 @@
+diff --git a/conda_smithy/configure_feedstock.py b/conda_smithy/configure_feedstock.py
+index a238177..a4e9788 100644
+--- a/conda_smithy/configure_feedstock.py
++++ b/conda_smithy/configure_feedstock.py
+@@ -519,26 +519,13 @@ def _render_ci_provider(
+     for i, (platform, arch, keep_noarch) in enumerate(
+         zip(platforms, archs, keep_noarchs)
+     ):
+-        config = conda_build.config.get_or_merge_config(None,
+-            exclusive_config_file=forge_config["exclusive_config_file"],
+-            platform=platform,
+-            arch=arch,
+-        )
+-
+-        # Get the combined variants from normal variant locations prior to running migrations
+-        combined_variant_spec, _ = conda_build.variants.get_package_combined_spec(
+-            os.path.join(forge_dir, "recipe"),
+-            config=config
+-        )
+-
+-        migrated_combined_variant_spec = migrate_combined_spec(combined_variant_spec, forge_dir, config)
+ 
+         metas = conda_build.api.render(
++            exclusive_config_file=forge_config["exclusive_config_file"],
+             os.path.join(forge_dir, "recipe"),
+             platform=platform,
+             arch=arch,
+             ignore_system_variants=True,
+-            variants=migrated_combined_variant_spec,
+             permit_undefined_jinja=True,
+             finalize=False,
+             bypass_env_check=True,
