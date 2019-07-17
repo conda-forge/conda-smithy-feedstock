@@ -9,6 +9,7 @@ source:
   sha256: 073038fd08a0a29887f20445b13d6a9ed84dfeacf1324a2aacbac9d490905a00
   patches:
     - 1102.diff
+    - revert_1072.diff
 
 build:
   number: 2
