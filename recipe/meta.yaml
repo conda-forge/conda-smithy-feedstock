@@ -23,10 +23,10 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
   run:
-    - python >=3.5
+    - python >=3.6
     - conda >=4.2
     - conda-build >=3.18.3
     - jinja2
