@@ -11,7 +11,7 @@ source:
     - 1102.diff
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
@@ -38,6 +38,7 @@ requirements:
     - ruamel.yaml
     - vsts-python-api
     - conda-forge-pinning
+    - toolz
 
 test:
   imports:
