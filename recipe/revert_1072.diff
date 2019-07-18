@@ -21,8 +21,8 @@ index a238177..a4e9788 100644
 -        migrated_combined_variant_spec = migrate_combined_spec(combined_variant_spec, forge_dir, config)
  
          metas = conda_build.api.render(
-+            exclusive_config_file=forge_config["exclusive_config_file"],
              os.path.join(forge_dir, "recipe"),
++            exclusive_config_file=forge_config["exclusive_config_file"],
              platform=platform,
              arch=arch,
              ignore_system_variants=True,
