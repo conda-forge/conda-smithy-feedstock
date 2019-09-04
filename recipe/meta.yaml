@@ -8,7 +8,9 @@ source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
   sha256: 994d8a3e841879bda8637ffb170cbe8132f28623575817f1c8d66d54ef7a3eab
   patches:
-    - 1102.diff
+    # backport https://github.com/conda-forge/conda-smithy/pull/1102
+    # remove when that PR is merged.
+    - 1102.patch
 
 build:
   number: 0
