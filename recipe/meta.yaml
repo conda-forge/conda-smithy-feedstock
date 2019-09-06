@@ -37,7 +37,7 @@ requirements:
     - git
     - gitpython
     - pygithub <2
-    - ruamel.yaml
+    - ruamel.yaml >=0.16
     - toolz
     - vsts-python-api
     - conda-forge-pinning
