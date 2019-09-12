@@ -1,4 +1,4 @@
-{% set version = "3.4.5" %}
+{% set version = "3.4.6" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: f8033fa66555fc8231d038a39e54bf52efd31a8a770b63e59d1a9e48037b863c
+  sha256: 4ce5599adb38372181f7831cf4cca1ce9402f3de1a11c3737e7d05ba7a7d85f3
   patches:
     # backport https://github.com/conda-forge/conda-smithy/pull/1102
     # remove when that PR is merged.
