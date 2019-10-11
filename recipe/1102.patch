@@ -1,22 +1,63 @@
+From 1d0fd199164199d0f6a3be6a1293e07d5770f380 Mon Sep 17 00:00:00 2001
+From: John Kirkham <jakirkham@gmail.com>
+Date: Fri, 11 Oct 2019 11:55:16 -0400
+Subject: [PATCH] Make license file comment a hint #1102
+
+Squashed commit of the following:
+
+commit ebf7ad7683b5ebdae49498076a7c5a673fa364c1
+Merge: 0b21f6d f146d56
+Author: John Kirkham <jakirkham@gmail.com>
+Date:   Fri Oct 11 11:39:58 2019 -0400
+
+    Merge conda-forge/master into jakirkham/lic_hint
+
+commit 0b21f6df05c10b681c16bd9bc5a44e211718765b
+Author: John Kirkham <jakirkham@gmail.com>
+Date:   Tue Jul 2 17:49:20 2019 -0400
+
+    Update message in test (to match current wording)
+
+commit cf1ba203a47b2d31ff54033d28e0c8268d577c53
+Author: Isuru Fernando <isuruf@gmail.com>
+Date:   Tue Jul 2 15:41:45 2019 -0500
+
+    Update lint_recipe.py
+
+commit 7776f7648071f9bee19cb6a99c684bb7863cabb7
+Author: John Kirkham <jakirkham@gmail.com>
+Date:   Tue Jul 2 14:54:23 2019 -0400
+
+    Make license file comment a hint
+
+    This relaxes the license file check to a hint.
+---
+ conda_smithy/lint_recipe.py | 17 +++++++++--------
+ news/license.rst            |  3 +++
+ tests/test_lint_recipe.py   |  7 ++++---
+ 3 files changed, 16 insertions(+), 11 deletions(-)
+ create mode 100644 news/license.rst
+
 diff --git a/conda_smithy/lint_recipe.py b/conda_smithy/lint_recipe.py
-index fa6ecb6..5d2c299 100644
+index 3c50212..48d4854 100644
 --- a/conda_smithy/lint_recipe.py
 +++ b/conda_smithy/lint_recipe.py
-@@ -275,13 +275,6 @@ def lintify(meta, recipe_dir=None, conda_forge=False):
+@@ -278,14 +278,6 @@ def lintify(meta, recipe_dir=None, conda_forge=False):
      except RuntimeError as e:
          lints.append(str(e))
  
 -    # 12a: License family must be valid (conda-build checks for that)
 -    license_family = about_section.get("license_family", license).lower()
 -    license_file = about_section.get("license_file", "")
--    needed_families = ["gpl", "bsd", "mit", "apache", "psf"]
--    if license_file == "" and any(f for f in needed_families if f in license_family):
+-    if license_file == "" and any(
+-        f for f in NEEDED_FAMILIES if f in license_family
+-    ):
 -        lints.append("license_file entry is missing, but is required.")
 -
      # 13: Check that the recipe name is valid
      recipe_name = package_section.get("name", "").strip()
      if re.match("^[a-z0-9_\-.]+$", recipe_name) is None:
-@@ -436,6 +429,13 @@ def lintify(meta, recipe_dir=None, conda_forge=False):
+@@ -495,6 +487,15 @@ def lintify(meta, recipe_dir=None, conda_forge=False):
                      "See https://conda-forge.org/docs/maintainer/knowledge_base.html#noarch-builds"
                  )
  
@@ -24,17 +65,28 @@ index fa6ecb6..5d2c299 100644
 +    license_family = about_section.get("license_family", license).lower()
 +    license_file = about_section.get("license_file", "")
 +    needed_families = ["gpl", "bsd", "mit", "apache", "psf"]
-+    if license_file == "" and any(f for f in needed_families if f in license_family):
++    if license_file == "" and any(
++        f for f in needed_families if f in license_family
++    ):
 +        hints.append("license_file entry is missing, but is expected.")
 +
      return lints, hints
  
  
+diff --git a/news/license.rst b/news/license.rst
+new file mode 100644
+index 0000000..427974d
+--- /dev/null
++++ b/news/license.rst
+@@ -0,0 +1,3 @@
++**Added:**
++
++* license_file is hinted for GPL, MIT, BSD, APACHE, PSF
 diff --git a/tests/test_lint_recipe.py b/tests/test_lint_recipe.py
-index d2aacbc..abce3ba 100644
+index 0cdc424..5f8065e 100644
 --- a/tests/test_lint_recipe.py
 +++ b/tests/test_lint_recipe.py
-@@ -569,7 +569,7 @@ class Test_linter(unittest.TestCase):
+@@ -584,7 +584,7 @@ class Test_linter(unittest.TestCase):
          )
          self.assertIn(expected_message, lints)
  
@@ -43,16 +95,18 @@ index d2aacbc..abce3ba 100644
          meta = {
              "about": {
                  "home": "a URL",
-@@ -579,9 +579,10 @@ class Test_linter(unittest.TestCase):
+@@ -593,8 +593,9 @@ class Test_linter(unittest.TestCase):
+             }
          }
          lints, hints = linter.lintify(meta)
-         expected_message = (
--            "license_file entry is missing, but is required."
-+            "license_file entry is missing, but is expected."
-         )
+-        expected_message = "license_file entry is missing, but is required."
 -        self.assertIn(expected_message, lints)
++        expected_message = "license_file entry is missing, but is expected."
 +        self.assertNotIn(expected_message, lints)
 +        self.assertIn(expected_message, hints)
  
      def test_recipe_name(self):
          meta = {"package": {"name": "mp++"}}
+-- 
+2.21.0 (Apple Git-122)
+
