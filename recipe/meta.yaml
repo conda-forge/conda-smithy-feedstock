@@ -7,13 +7,9 @@ package:
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
   sha256: 284cc633049a16b4ff4b13633f1373a94b5904169497a533b5e81bd8c3454d4c
-  patches:
-    # backport https://github.com/conda-forge/conda-smithy/pull/1102
-    # remove when that PR is merged.
-    - 1102.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
