@@ -37,6 +37,9 @@ requirements:
     - toolz
     - vsts-python-api
     - conda-forge-pinning
+    - shellcheck
+    - scrypt
+    - license-expression
 
 test:
   imports:
