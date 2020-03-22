@@ -3,7 +3,7 @@ About conda-smithy
 
 Home: https://github.com/conda-forge/conda-smithy
 
-Package license: BSD 3-clause
+Package license: BSD-3-Clause
 
 Feedstock license: BSD 3-Clause
 
