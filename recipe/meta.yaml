@@ -9,7 +9,7 @@ source:
   sha256: 962452e960895738ead77c98fe184358e819cf1e6551027f161e25ff3341affd
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
@@ -37,7 +37,6 @@ requirements:
     - toolz
     - vsts-python-api
     - conda-forge-pinning
-    - shellcheck
     - scrypt
     - license-expression
 
