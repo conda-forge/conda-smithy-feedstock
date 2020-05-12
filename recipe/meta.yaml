@@ -39,6 +39,7 @@ requirements:
     - conda-forge-pinning
     - scrypt
     - license-expression
+    - libarchive
 
 test:
   imports:
