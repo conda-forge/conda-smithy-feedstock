@@ -9,8 +9,7 @@ source:
   sha256: ccdb5043660d014a535f133a4e35ee3916c0fea1f40fcbb446239e040e2afea0
 
 build:
-  number: 0
-  noarch: python
+  number: 1
   script:
     - "{{ PYTHON }} -m pip install . --no-deps -vv"
     - rm -f "${PREFIX}/bin/conda"           # [not win]
@@ -30,7 +29,8 @@ requirements:
     - jinja2
     - requests
     - pycrypto
-    - git
+    - git         # [not win]
+    - m2-git      # [win]
     - gitpython
     - pygithub <2
     - ruamel.yaml >=0.16
