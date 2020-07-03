@@ -5,7 +5,7 @@ Home: https://github.com/conda-forge/conda-smithy
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD-3-Clause
+Feedstock license: BSD 3-Clause
 
 Summary: The tool for managing conda-forge feedstocks
 
