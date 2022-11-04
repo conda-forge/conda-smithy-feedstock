@@ -9,7 +9,7 @@ source:
   sha256: 09a8d296cf768f5b5188896e8421e47635e233228801730bd2a5040fb0148b17
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv
@@ -25,18 +25,19 @@ requirements:
     - pip
   run:
     - python >=3.6
+    - setuptools
     - conda >=4.2
     - conda-build >=3.18.3
     - jinja2
     - requests
-    - pycrypto
-    - git
+    - pycryptodome
     - gitpython
+    - git
     - pygithub <2
     - ruamel.yaml >=0.16
-    - toolz
-    - vsts-python-api
     - conda-forge-pinning
+    - vsts-python-api
+    - toolz
     - scrypt
     - license-expression
     - libarchive
@@ -52,10 +53,9 @@ test:
 about:
   home: https://github.com/conda-forge/conda-smithy
   license: BSD-3-Clause
-  license_family: BSD
   license_file: LICENSE.txt
   summary: The tool for managing conda-forge feedstocks
 
 extra:
   recipe-maintainers:
-    - conda-forge/Core
+    - conda-forge/core
