@@ -1,4 +1,4 @@
-{% set version = "3.21.3" %}
+{% set version = "3.22.0" %}
 
 package:
   name: conda-smithy
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 09a8d296cf768f5b5188896e8421e47635e233228801730bd2a5040fb0148b17
+  sha256: 5b3ef7f0ef1e0b9b8585dff3de1f0ce1fdf3536b34faf9fcab7323761ef96676
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv
@@ -28,6 +28,7 @@ requirements:
     - setuptools
     - conda >=4.2
     - conda-build >=3.18.3
+    - conda-package-handling >=1.9.0
     - jinja2
     - requests
     - pycryptodome
