@@ -43,6 +43,7 @@ requirements:
     - vsts-python-api
     - toolz
     - scrypt
+    - shellcheck
     - license-expression
     - libarchive
 
