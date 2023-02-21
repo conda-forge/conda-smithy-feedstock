@@ -23,7 +23,7 @@ requirements:
   host:
     - python >=3.6
     - pip
-    - setuptools >=45,
+    - setuptools >=45
     - setuptools-scm >=7
     - tomli >=1.0.0
   run:
