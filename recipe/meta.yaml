@@ -43,9 +43,10 @@ requirements:
     - vsts-python-api
     - toolz
     - scrypt
-    - shellcheck
     - license-expression
     - libarchive
+  run_constrained:
+    - shellcheck
 
 test:
   imports:
