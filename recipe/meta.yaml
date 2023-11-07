@@ -1,4 +1,4 @@
-{% set version = "3.27.1" %}
+{% set version = "3.28.0" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 437412ffa7cbfd8993eb836cc54ee112bfae9ff2e397592fa2bb974207799015
+  sha256: e27b0c8477714064785c7732d1dbdcb1eac1ea5838aa9600c0249f2eac4a1243
 
 build:
   number: 0
@@ -46,6 +46,7 @@ requirements:
     - license-expression
     - libarchive
     - tomli >=1.0.0  # for python <3.11, can remove in the future
+    - cirun
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
