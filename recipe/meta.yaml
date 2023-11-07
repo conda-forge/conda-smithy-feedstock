@@ -46,6 +46,7 @@ requirements:
     - license-expression
     - libarchive
     - tomli >=1.0.0  # for python <3.11, can remove in the future
+    - cirun
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
