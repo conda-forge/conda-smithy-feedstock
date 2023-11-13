@@ -37,7 +37,7 @@ requirements:
     - pycryptodome
     - gitpython
     - git
-    - pygithub <2
+    - pygithub >=2,<3
     - ruamel.yaml >=0.16
     - conda-forge-pinning
     - vsts-python-api
