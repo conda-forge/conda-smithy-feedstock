@@ -1,4 +1,4 @@
-{% set version = "3.28.0" %}
+{% set version = "3.29.0" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: e27b0c8477714064785c7732d1dbdcb1eac1ea5838aa9600c0249f2eac4a1243
+  sha256: e7cd8b0255fc19d74e6de532a13f143d0da4146217fe114603c4a10ddd9c72e2
 
 build:
   number: 0
@@ -37,7 +37,7 @@ requirements:
     - pycryptodome
     - gitpython
     - git
-    - pygithub <2
+    - pygithub >=2,<3
     - ruamel.yaml >=0.16
     - conda-forge-pinning
     - vsts-python-api
