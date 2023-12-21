@@ -30,7 +30,7 @@ requirements:
     - python >=3.6
     - setuptools
     - conda >=4.2
-    - conda-build >=3.18.3
+    - conda-build >=3.28.2
     - conda-package-handling >=1.9.0
     - jinja2
     - requests
