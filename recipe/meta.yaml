@@ -8,7 +8,7 @@ source:
   url: https://github.com/conda-forge/conda-smithy/archive/refs/tags/v{{ version }}.tar.gz
   # hmaarrfk: 2024/01 -- Did i do something wrong with the tag for 3.30.3? 
   # url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 1c99223e3139a0da05236bf664cfb9bcf1d7720fede3a5d813c58619d480792d
+  sha256: 6e22395a8ce9e8ca47355fa9dc9b840a1480be36f9a1996d5f113fcafc9edcfb
 
 build:
   number: 0
