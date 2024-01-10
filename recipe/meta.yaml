@@ -1,4 +1,4 @@
-{% set version = "3.30.2" %}
+{% set version = "3.30.3" %}
 
 package:
   name: conda-smithy
