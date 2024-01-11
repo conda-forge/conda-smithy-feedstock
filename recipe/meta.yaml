@@ -1,4 +1,4 @@
-{% set version = "3.30.3" %}
+{% set version = "3.30.4" %}
 
 package:
   name: conda-smithy
@@ -8,7 +8,7 @@ source:
   url: https://github.com/conda-forge/conda-smithy/archive/refs/tags/v{{ version }}.tar.gz
   # hmaarrfk: 2024/01 -- Did i do something wrong with the tag for 3.30.3? 
   # url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 6e22395a8ce9e8ca47355fa9dc9b840a1480be36f9a1996d5f113fcafc9edcfb
+  sha256: f1f12eb7c036be869fafd942ab3b8f97365516e687b1ea00dad64b7d5becbeb9
 
 build:
   number: 0
