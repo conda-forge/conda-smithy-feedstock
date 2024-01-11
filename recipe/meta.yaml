@@ -5,9 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-forge/conda-smithy/archive/refs/tags/v{{ version }}.tar.gz
-  # hmaarrfk: 2024/01 -- Did i do something wrong with the tag for 3.30.3? 
-  # url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
+  url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
   sha256: 4a0373e84316cf4bb711779a258a200f778daf3e6cfc51cae8a5df383e3383dd
 
 build:
