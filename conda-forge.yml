@@ -4,3 +4,6 @@ conda_build:
 github:
   branch_name: main
   tooling_branch_name: main
+noarch_platforms:
+- linux_64
+- win_64
