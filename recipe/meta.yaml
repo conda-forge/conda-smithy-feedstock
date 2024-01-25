@@ -27,6 +27,8 @@ requirements:
     - setuptools-scm >=7
     - tomli >=1.0.0
   run:
+    - __unix                          # [unix]
+    - __win                           # [win]
     - python >=3.6
     - setuptools
     - conda >=4.2
@@ -36,7 +38,8 @@ requirements:
     - requests
     - pycryptodome
     - gitpython
-    - git
+    - git                             # [unix]
+    - m2-git                          # [win]
     - pygithub >=2,<3
     - ruamel.yaml >=0.16
     - conda-forge-pinning
