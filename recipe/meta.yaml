@@ -1,12 +1,12 @@
-{% set version = "3.30.4" %}
+{% set version = "3.36.0" %}
 
 package:
   name: conda-smithy
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda-smithy-{{ version }}.tar.gz
-  sha256: 4a0373e84316cf4bb711779a258a200f778daf3e6cfc51cae8a5df383e3383dd
+  url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
+  sha256: d6240b78efdb786212dda051d782a139911b2484b7a183378ce151822c073cb9
 
 build:
   number: 1
@@ -26,7 +26,7 @@ requirements:
     - python >=3.6
     - pip
     - setuptools >=45
-    - setuptools-scm >=7
+    - setuptools-scm >=8.1
     - tomli >=1.0.0
   run:
     - __unix                          # [unix]
@@ -34,7 +34,7 @@ requirements:
     - python >=3.6
     - setuptools
     - conda >=4.2
-    - conda-build >=3.18.3
+    - conda-build >=24.3
     - conda-package-handling >=1.9.0
     - jinja2
     - requests
@@ -51,7 +51,10 @@ requirements:
     - license-expression
     - libarchive
     - tomli >=1.0.0  # for python <3.11, can remove in the future
+    - backports.strenum
     - cirun >=0.30
+    - exceptiongroup
+    - jsonschema
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
