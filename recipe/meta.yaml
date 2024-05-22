@@ -9,8 +9,10 @@ source:
   sha256: d6240b78efdb786212dda051d782a139911b2484b7a183378ce151822c073cb9
 
 build:
-  number: 0
+  number: 1
   noarch: python
+  string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
+  string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [win]
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv
     - rm -f "${PREFIX}/bin/conda"           # [not win]
@@ -27,6 +29,8 @@ requirements:
     - setuptools-scm >=8.1
     - tomli >=1.0.0
   run:
+    - __unix                          # [unix]
+    - __win                           # [win]
     - python >=3.6
     - setuptools
     - conda >=4.2
@@ -36,7 +40,8 @@ requirements:
     - requests
     - pycryptodome
     - gitpython
-    - git
+    - git                             # [unix]
+    - m2-git                          # [win]
     - pygithub >=2,<3
     - ruamel.yaml >=0.16
     - conda-forge-pinning

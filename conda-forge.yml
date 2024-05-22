@@ -1,6 +1,9 @@
 conda_forge_output_validation: true
+conda_build:
+  pkg_format: '2'
 github:
   branch_name: main
   tooling_branch_name: main
-conda_build:
-  pkg_format: '2'
+noarch_platforms:
+- linux_64
+- win_64
