@@ -41,7 +41,10 @@ requirements:
     - pycryptodome
     - gitpython
     - git                             # [unix]
-    - m2-git                          # [win]
+    # TODO: Both `git` & `m2-git` on Windows have problems.
+    #       For now, install neither. Hopefully we can find
+    #       a better solution in the future.
+    #- m2-git                          # [win]
     - pygithub >=2,<3
     - ruamel.yaml >=0.16
     - conda-forge-pinning
