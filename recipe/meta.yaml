@@ -1,4 +1,4 @@
-{% set version = "3.36.2" %}
+{% set version = "3.37.0" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 061310fbfe08f7dfe7049489373b766c74616642ee589cc4fdff676a800f9e19
+  sha256: e7b4e3c6c769975abe467bcb0b56681ffa34975c6c2e4adc607c3834fecf3039
 
 build:
   number: 0
@@ -58,6 +58,7 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
+    - rattler-build-conda-compat >=0.0.6
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
