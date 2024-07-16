@@ -58,6 +58,7 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
+    - rattler-build-conda-compat >=0.0.6
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
