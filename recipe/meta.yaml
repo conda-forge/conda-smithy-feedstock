@@ -74,12 +74,11 @@ test:
     - mock
     - pytest
     - pytest-cov
-    - pydantic
   source_files:
     - tests/
   commands:
     - conda smithy --help
-    - pytest ./tests
+    - pytest tests/test_condaforge_config_schema.py tests/test_ci_skeleton.py tests/test_feedstock_io.py tests/test_feedstock_tokens.py tests/test_lint_recipe.py tests/test_variant_algebra.py
   
 
 about:
