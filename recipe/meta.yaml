@@ -9,7 +9,7 @@ source:
   sha256: a4524476bdc93d573f76d7b71ede235a77f61a905ddd820cb1b1124b9276d879
 
 build:
-  number: 1
+  number: 0
   noarch: python
   string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
   string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [win]
