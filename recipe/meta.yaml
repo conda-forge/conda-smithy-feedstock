@@ -9,7 +9,7 @@ source:
   sha256: a4524476bdc93d573f76d7b71ede235a77f61a905ddd820cb1b1124b9276d879
 
 build:
-  number: 0
+  number: 1
   noarch: python
   string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
   string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [win]
@@ -69,8 +69,16 @@ test:
     - conda_smithy
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
+  requires:
+    - mock
+    - pytest
+    - pytest-cov
+  source_files:
+    - tests/
   commands:
     - conda smithy --help
+    - pytest ./tests
+  
 
 about:
   home: https://github.com/conda-forge/conda-smithy
