@@ -59,7 +59,6 @@ requirements:
     - exceptiongroup
     - jsonschema
     - rattler-build-conda-compat >=0.0.6
-    - pydantic >=2,<3
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
@@ -74,6 +73,7 @@ test:
     - mock
     - pytest
     - pytest-cov
+    - pydantic >=2,<3
   source_files:
     - tests/
   commands:
