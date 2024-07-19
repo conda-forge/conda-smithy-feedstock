@@ -78,7 +78,8 @@ test:
     - tests/
   commands:
     - conda smithy --help
-    - pytest tests/test_condaforge_config_schema.py tests/test_ci_skeleton.py tests/test_feedstock_io.py tests/test_feedstock_tokens.py tests/test_lint_recipe.py tests/test_variant_algebra.py
+    # Run the tests but ignore tests that fail at the time of writing.
+    - pytest tests --ignore tests/test_anaconda_token_rotation.py --ignore tests/test_cli.py --ignore tests/test_configure_feedstock.py
   
 
 about:
