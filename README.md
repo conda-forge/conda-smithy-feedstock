@@ -143,8 +143,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@conda-forge/core](https://github.com/conda-forge/core/)
-
-
-<!-- dummy commit to enable rerendering -->
+* [@conda-forge/core](https://github.com/orgs/conda-forge/teams/core/)
 
