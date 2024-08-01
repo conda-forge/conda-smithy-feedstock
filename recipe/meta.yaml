@@ -9,7 +9,7 @@ source:
   sha256: 22f8a9d0d69b655e2eb06274d62c950cbe629118eac899e91a43146e24645b5e
 
 build:
-  number: 0
+  number: 1
   noarch: python
   string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
   string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [win]
@@ -58,7 +58,7 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
-    - rattler-build-conda-compat >=0.2.4
+    - rattler-build-conda-compat >=0.2.4,<1.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
