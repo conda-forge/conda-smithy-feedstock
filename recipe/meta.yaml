@@ -23,7 +23,7 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}.*
     - pip
     - setuptools >=45
     - setuptools-scm >=8.1
@@ -31,7 +31,7 @@ requirements:
   run:
     - __unix                          # [unix]
     - __win                           # [win]
-    - python >=3.6
+    - python >={{ python_min }}
     - setuptools
     - conda >=4.2
     - conda-build >=24.3
@@ -70,6 +70,7 @@ test:
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
   requires:
+    - python ={{ pytho_min }}
     - mock
     - pytest
     - pytest-cov
