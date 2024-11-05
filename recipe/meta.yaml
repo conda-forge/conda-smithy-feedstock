@@ -1,4 +1,5 @@
-{% set version = "3.43.2" %}
+{% set version = "3.44.0" %}
+{% set python_min = python_min|default("0.1a0") %}
 
 package:
   name: conda-smithy
@@ -6,7 +7,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: dcde47a7e251c665b18ca457772d0728858cf85f7037b4be3dc8454e8e9cd063
+  sha256: ec4db4900bac2e0785538c5436747d7948eecf542b2883b97d1c85220a825092
 
 build:
   number: 0
@@ -23,7 +24,7 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}.*
     - pip
     - setuptools >=45
     - setuptools-scm >=8.1
@@ -31,7 +32,7 @@ requirements:
   run:
     - __unix                          # [unix]
     - __win                           # [win]
-    - python >=3.6
+    - python >={{ python_min }}
     - setuptools
     - conda >=4.2
     - conda-build >=24.3
@@ -70,6 +71,7 @@ test:
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
   requires:
+    - python ={{ python_min }}
     - mock
     - pytest
     - pytest-cov
