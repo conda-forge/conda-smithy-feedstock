@@ -71,7 +71,7 @@ test:
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
   requires:
-    - python ={{ pytho_min }}
+    - python ={{ python_min }}
     - mock
     - pytest
     - pytest-cov
