@@ -1,5 +1,4 @@
 {% set version = "3.44.2" %}
-{% set python_min = python_min|default("0.1a0") %}
 
 package:
   name: conda-smithy
@@ -24,7 +23,7 @@ build:
 
 requirements:
   host:
-    - python {{ python_min }}.*
+    - python {{ python_min }}
     - pip
     - setuptools >=45
     - setuptools-scm >=8.1
@@ -71,7 +70,7 @@ test:
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
   requires:
-    - python ={{ python_min }}
+    - python {{ python_min }}
     - mock
     - pytest
     - pytest-cov
