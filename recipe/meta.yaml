@@ -1,4 +1,4 @@
-{% set version = "3.44.0" %}
+{% set version = "3.44.1" %}
 {% set python_min = python_min|default("0.1a0") %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: ec4db4900bac2e0785538c5436747d7948eecf542b2883b97d1c85220a825092
+  sha256: 3970664136bc5c4d9903c290fbd7e74652781b7db31bd2cc13f946069c825ce4
 
 build:
   number: 0
