@@ -75,9 +75,9 @@ test:
     - pytest
     - pytest-cov
     - pydantic >=2,<3
-    - conda-forge-tick
-    - conda-souschef
-    - conda-recipe-manager
+    - conda-forge-tick      # [unix]
+    - conda-souschef        # [unix]
+    - conda-recipe-manager  # [unix]
   source_files:
     - tests/
   commands:
@@ -87,8 +87,9 @@ test:
       pytest tests 
       --ignore tests/test_anaconda_token_rotation.py 
       --ignore tests/test_cli.py 
-      --ignore tests/test_configure_feedstock.py 
+      --ignore tests/test_configure_feedstock.py
       -k "not test_maintainer_team_exists"
+      -k "not test_lint_recipe_parses"  # [win]
 
 about:
   home: https://github.com/conda-forge/conda-smithy
