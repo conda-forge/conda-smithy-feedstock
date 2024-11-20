@@ -70,7 +70,9 @@ test:
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
   requires:
-    - python {{ python_min }}
+    # no python min here due to testing requirements on linux
+    - python                    # [unix]
+    - python  {{ python_min }}  # [win]
     - mock
     - pytest
     - pytest-cov
