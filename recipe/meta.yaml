@@ -1,4 +1,4 @@
-{% set version = "3.44.6" %}
+{% set version = "3.44.7" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: b52d6982bf0b77bbb243bd4ad670ee9ff689f2215222b4cb00cb8a8f55d00cff
+  sha256: abb1c1d9e7a38126aba41f3cd0709a764a953b9fcd6541e5cd1d666dc67771fe
 
 build:
   number: 0
@@ -70,11 +70,16 @@ test:
     - conda_smithy.ci_register
     - conda_smithy.configure_feedstock
   requires:
-    - python {{ python_min }}
+    # no python min here due to testing requirements on linux
+    - python                    # [unix]
+    - python  {{ python_min }}  # [win]
     - mock
     - pytest
     - pytest-cov
     - pydantic >=2,<3
+    - conda-forge-tick      # [unix]
+    - conda-souschef        # [unix]
+    - conda-recipe-manager  # [unix]
   source_files:
     - tests/
   commands:
@@ -84,8 +89,11 @@ test:
       pytest tests 
       --ignore tests/test_anaconda_token_rotation.py 
       --ignore tests/test_cli.py 
-      --ignore tests/test_configure_feedstock.py 
+      --ignore tests/test_configure_feedstock.py
       -k "not test_maintainer_team_exists"
+      {% if win -%}
+      -k "not test_lint_recipe_parses"
+      {%- endif %}
 
 about:
   home: https://github.com/conda-forge/conda-smithy
