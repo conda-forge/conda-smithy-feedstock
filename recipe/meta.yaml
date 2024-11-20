@@ -91,7 +91,7 @@ test:
       --ignore tests/test_cli.py 
       --ignore tests/test_configure_feedstock.py
       -k "not test_maintainer_team_exists"
-      {%- if win -%}
+      {% if win -%}
       -k "not test_lint_recipe_parses"
       {%- endif %}
 
