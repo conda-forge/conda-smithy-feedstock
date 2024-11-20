@@ -75,6 +75,9 @@ test:
     - pytest
     - pytest-cov
     - pydantic >=2,<3
+    - conda-forge-tick
+    - conda-souschef
+    - conda-recipe-manager
   source_files:
     - tests/
   commands:
