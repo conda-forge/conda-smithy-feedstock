@@ -90,9 +90,7 @@ test:
       --ignore tests/test_cli.py 
       --ignore tests/test_configure_feedstock.py
       -k "not test_maintainer_team_exists"
-      {% if py>=311 -%}
       -k "not test_lint_recipe_parses"
-      {%- endif %}
 
 about:
   home: https://github.com/conda-forge/conda-smithy
