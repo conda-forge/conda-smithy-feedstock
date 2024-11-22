@@ -11,8 +11,7 @@ source:
 build:
   number: 1
   noarch: python
-  string: unix_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [unix]
-  string: win_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}   # [win]
+  string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
     - {{ PYTHON }} -m pip install . --no-deps -vv
     - rm -f "${PREFIX}/bin/conda"           # [not win]
