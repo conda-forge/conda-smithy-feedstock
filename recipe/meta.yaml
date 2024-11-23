@@ -85,7 +85,7 @@ test:
     - conda smithy --help
     # Run the tests but ignore tests that fail at the time of writing.
     - >- 
-      pytest --vvsx --log-cli-level=debug tests 
+      pytest -vvsx --log-cli-level=debug tests 
       --ignore tests/test_anaconda_token_rotation.py 
       --ignore tests/test_cli.py 
       -k "not test_maintainer_team_exists and not test_github_actions_pins"
