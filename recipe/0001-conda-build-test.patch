@@ -1,5 +1,5 @@
 diff --git a/conda_smithy/configure_feedstock.py b/conda_smithy/configure_feedstock.py
-index 6998aef19..28359115b 100644
+index 6998aef19..5c0f0ef0b 100644
 --- a/conda_smithy/configure_feedstock.py
 +++ b/conda_smithy/configure_feedstock.py
 @@ -1041,6 +1041,19 @@ def _render_ci_provider(
@@ -10,14 +10,14 @@ index 6998aef19..28359115b 100644
 +        os.system("ls -lah")
 +        os.system("cat " + forge_config["exclusive_config_file"])
 +        print("config.variant:", config.variant, flush=True)
-+        # # when running tests in conda-build, somehow a variant gets set that we do not want
-+        # if (
-+        #     os.environ.get("CONDA_BUILD", None)
-+        #     and os.environ.get("CONDA_BUILD_STATE", None) == "TEST"
-+        # ):
-+        #     for _attr in ["variant", "variants"]:
-+        #         if hasattr(config, _attr):
-+        #             delattr(config, _attr)
++        # when running tests in conda-build, somehow a variant gets set that we do not want
++        if (
++            os.environ.get("CONDA_BUILD", None)
++            and os.environ.get("CONDA_BUILD_STATE", None) == "TEST"
++        ):
++            for _attr, val in [("variant", {}), ("variants", [{}])]:
++                if hasattr(config, _attr):
++                    setattr(config, _attr, val)
 +
          # Get the combined variants from normal variant locations prior to running migrations
          (
