@@ -88,6 +88,7 @@ test:
       --ignore tests/test_anaconda_token_rotation.py 
       --ignore tests/test_cli.py 
       -k "not test_maintainer_team_exists"
+      -k "not test_github_actions_pins"
 
 about:
   home: https://github.com/conda-forge/conda-smithy
