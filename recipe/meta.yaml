@@ -80,6 +80,7 @@ test:
     - conda-recipe-manager
   source_files:
     - tests/
+    - pyproject.toml  # for pytest config bits
   commands:
     - conda smithy --help
     # Run the tests but ignore tests that fail at the time of writing.
