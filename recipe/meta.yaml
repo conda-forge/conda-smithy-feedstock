@@ -9,7 +9,7 @@ source:
   sha256: abb1c1d9e7a38126aba41f3cd0709a764a953b9fcd6541e5cd1d666dc67771fe
 
 build:
-  number: 1
+  number: 2
   noarch: python
   string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
