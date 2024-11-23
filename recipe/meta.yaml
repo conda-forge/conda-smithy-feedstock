@@ -5,10 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: abb1c1d9e7a38126aba41f3cd0709a764a953b9fcd6541e5cd1d666dc67771fe
-  # patches:
-  #   - 0001-conda-build-test.patch
+  git_url: https://github.com/conda-forge/conda-smithy.git
+  git_rev: beckermr-patch-1
 
 build:
   number: 2
@@ -88,10 +86,10 @@ test:
     # Run the tests but ignore tests that fail at the time of writing.
     - unset CONDA_BUILD
     - unset CONDA_BUILD_STATE
-    - >- 
-      pytest -vvsx --log-cli-level=debug tests 
-      --ignore tests/test_anaconda_token_rotation.py 
-      --ignore tests/test_cli.py 
+    - >-
+      pytest -vvsx --log-cli-level=debug tests
+      --ignore tests/test_anaconda_token_rotation.py
+      --ignore tests/test_cli.py
       -k "test_noarch_skips_appveyor[conda-build] and not test_maintainer_team_exists and not test_github_actions_pins"
 
 about:
