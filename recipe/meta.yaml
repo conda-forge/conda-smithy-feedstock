@@ -7,8 +7,8 @@ package:
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
   sha256: abb1c1d9e7a38126aba41f3cd0709a764a953b9fcd6541e5cd1d666dc67771fe
-  patches:
-    - 0001-conda-build-test.patch
+  # patches:
+  #   - 0001-conda-build-test.patch
 
 build:
   number: 2
@@ -86,6 +86,8 @@ test:
   commands:
     - conda smithy --help
     # Run the tests but ignore tests that fail at the time of writing.
+    - unset CONDA_BUILD
+    - unset CONDA_BUILD_STATE
     - >- 
       pytest -vvsx --log-cli-level=debug tests 
       --ignore tests/test_anaconda_token_rotation.py 
