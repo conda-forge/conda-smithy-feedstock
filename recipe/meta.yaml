@@ -84,6 +84,11 @@ test:
   commands:
     - conda smithy --help
     # Run the tests but ignore tests that fail at the time of writing.
+    - unset CONDA_PY
+    - unset CONDA_NPY
+    - unset CONDA_R
+    - unset CONDA_LUA
+    - unset CONDA_PERL
     - >-
       pytest -vvsx --log-cli-level=debug tests
       --ignore tests/test_anaconda_token_rotation.py
