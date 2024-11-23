@@ -1,25 +1,23 @@
-From d7de6488e44b67a7662da72c343ed604e478848e Mon Sep 17 00:00:00 2001
-From: "Matthew R. Becker" <beckermr@users.noreply.github.com>
-Date: Sat, 23 Nov 2024 08:42:53 -0600
-Subject: [PATCH] fix: allow tests to run in conda-build
-
----
- conda_smithy/configure_feedstock.py | 6 ++++++
- 1 file changed, 6 insertions(+)
-
 diff --git a/conda_smithy/configure_feedstock.py b/conda_smithy/configure_feedstock.py
-index 6998aef19..eb7dac978 100644
+index 6998aef19..28359115b 100644
 --- a/conda_smithy/configure_feedstock.py
 +++ b/conda_smithy/configure_feedstock.py
-@@ -1041,6 +1041,12 @@ def _render_ci_provider(
+@@ -1041,6 +1041,19 @@ def _render_ci_provider(
              arch=arch,
          )
  
-+        # when running tests in conda-build, somehow a variant gets set that we do not want
-+        if os.environ.get("CONDA_BUILD", None) and os.environ.get("CONDA_BUILD_STATE", None) == "TEST":
-+            for _attr in ["variant", "variants"]:
-+                if hasattr(config, _attr):
-+                    delattr(config, _attr)
++        print("exclusive config file", forge_config["exclusive_config_file"], flush=True)
++        os.system("ls -lah")
++        os.system("cat " + forge_config["exclusive_config_file"])
++        print("config.variant:", config.variant, flush=True)
++        # # when running tests in conda-build, somehow a variant gets set that we do not want
++        # if (
++        #     os.environ.get("CONDA_BUILD", None)
++        #     and os.environ.get("CONDA_BUILD_STATE", None) == "TEST"
++        # ):
++        #     for _attr in ["variant", "variants"]:
++        #         if hasattr(config, _attr):
++        #             delattr(config, _attr)
 +
          # Get the combined variants from normal variant locations prior to running migrations
          (
