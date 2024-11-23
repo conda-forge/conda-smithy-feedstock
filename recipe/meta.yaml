@@ -84,16 +84,16 @@ test:
   commands:
     - conda smithy --help
     # Run the tests but ignore tests that fail at the time of writing.
-    - unset CONDA_PY
-    - unset CONDA_NPY
-    - unset CONDA_R
-    - unset CONDA_LUA
-    - unset CONDA_PERL
+    # - unset CONDA_PY
+    # - unset CONDA_NPY
+    # - unset CONDA_R
+    # - unset CONDA_LUA
+    # - unset CONDA_PERL
     - >-
       pytest -vvsx --log-cli-level=debug tests
       --ignore tests/test_anaconda_token_rotation.py
       --ignore tests/test_cli.py
-      -k "test_noarch_skips_appveyor[conda-build] and not test_maintainer_team_exists and not test_github_actions_pins"
+      -k "not test_maintainer_team_exists and not test_github_actions_pins"
 
 about:
   home: https://github.com/conda-forge/conda-smithy
