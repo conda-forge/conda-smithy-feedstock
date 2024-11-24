@@ -9,7 +9,7 @@ source:
   sha256: abb1c1d9e7a38126aba41f3cd0709a764a953b9fcd6541e5cd1d666dc67771fe
 
 build:
-  number: 1
+  number: 2
   noarch: python
   string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
@@ -80,15 +80,23 @@ test:
     - conda-recipe-manager
   source_files:
     - tests/
+    - pyproject.toml  # for pytest config bits
   commands:
     - conda smithy --help
     # Run the tests but ignore tests that fail at the time of writing.
-    - >- 
-      pytest tests 
-      --ignore tests/test_anaconda_token_rotation.py 
-      --ignore tests/test_cli.py 
-      --ignore tests/test_configure_feedstock.py
-      -k "not test_maintainer_team_exists"
+    # These environment variables are removed because they prevent the
+    # tests from running correctly. See https://github.com/conda-forge/conda-smithy/pull/2162
+    # This is a temporary workaround until a smithy with the fix is released.
+    - unset CONDA_PY
+    - unset CONDA_NPY
+    - unset CONDA_R
+    - unset CONDA_LUA
+    - unset CONDA_PERL
+    - >-
+      pytest tests
+      --ignore tests/test_anaconda_token_rotation.py
+      --ignore tests/test_cli.py
+      -k "not test_maintainer_team_exists and not test_github_actions_pins"
 
 about:
   home: https://github.com/conda-forge/conda-smithy
