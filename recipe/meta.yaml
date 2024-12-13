@@ -39,6 +39,7 @@ requirements:
     - requests
     - pycryptodome
     - gitpython
+    - pygit2
     - git                             # [unix]
     # TODO: Both `git` & `m2-git` on Windows have problems.
     #       For now, install neither. Hopefully we can find
