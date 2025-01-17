@@ -1,4 +1,4 @@
-{% set version = "3.45.2" %}
+{% set version = "3.45.3" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 88b046b4936b136854f01a290350bbe6726394fac054f2dca16887d33a555b65
+  sha256: 96aec0a3c7b6823b9e95ac219aea5a8de3ec2b10c843053c21e62c433a4d38c1
 
 build:
   number: 0
@@ -78,7 +78,7 @@ test:
     - pydantic >=2,<3
     - conda-forge-tick      # [unix]
     - conda-souschef
-    - conda-recipe-manager
+    - conda-recipe-manager <=0.4.0
   source_files:
     - tests/
     - pyproject.toml  # for pytest config bits
