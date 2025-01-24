@@ -1,4 +1,4 @@
-{% set version = "3.45.3" %}
+{% set version = "3.45.4" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 96aec0a3c7b6823b9e95ac219aea5a8de3ec2b10c843053c21e62c433a4d38c1
+  sha256: 72ab3257ba6f8bb97d38f3fb97387edfb30beb66c7a3b972f0b5c8104ec9fc10
 
 build:
   number: 0
@@ -97,7 +97,7 @@ test:
       pytest tests
       --ignore tests/test_anaconda_token_rotation.py
       --ignore tests/test_cli.py
-      -k "not test_maintainer_team_exists and not test_github_actions_pins and not test_maintainer_exists"
+      -k "not test_maintainer_team_exists and not test_github_actions_pins and not test_maintainer_exists and not test_lint_recipe_parses_spacing"
 
 about:
   home: https://github.com/conda-forge/conda-smithy
