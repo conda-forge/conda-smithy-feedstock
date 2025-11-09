@@ -63,6 +63,7 @@ requirements:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
     - shellcheck
+    - pixi >=0.59.0
 
 test:
   imports:
