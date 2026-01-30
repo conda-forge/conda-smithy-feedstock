@@ -9,7 +9,7 @@ source:
   sha256: 0bea9a79691f89313216b0e9c7c58a1508046356b2d6a082555f00dcd580309c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
@@ -58,7 +58,8 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
-    - py-rattler >=0.21
+    # temporary upper bound due to https://github.com/conda/rattler/issues/2023
+    - py-rattler >=0.21,<0.22
     - rattler-build-conda-compat >=1.4.5,<2.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
