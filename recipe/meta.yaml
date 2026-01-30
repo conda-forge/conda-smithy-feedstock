@@ -1,4 +1,4 @@
-{% set version = "3.54.1" %}
+{% set version = "3.54.2" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 3b44a14e0f9669ece5bba04520318ac06dbb55da2541d443a00ab0f1210bc33d
+  sha256: 0bea9a79691f89313216b0e9c7c58a1508046356b2d6a082555f00dcd580309c
 
 build:
   number: 0
@@ -58,12 +58,14 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
+    - py-rattler >=0.21
     - rattler-build-conda-compat >=1.4.5,<2.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
     - shellcheck
     - pixi >=0.59.0
+    - conda-recipe-manager >=0.9
 
 test:
   imports:
@@ -79,7 +81,7 @@ test:
     - pydantic >=2.11,<3
     - conda-forge-tick      # [unix]
     - conda-souschef
-    - conda-recipe-manager <=0.4.0
+    - conda-recipe-manager
   source_files:
     - tests/
     - pyproject.toml  # for pytest config bits
