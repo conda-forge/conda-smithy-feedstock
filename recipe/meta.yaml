@@ -58,6 +58,7 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
+    - py-rattler >=0.21
     - rattler-build-conda-compat >=1.4.5,<2.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
