@@ -5,8 +5,15 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 6560f5c548ee582e7803036d20bccea2430c87d0fa48ebbd23ebd2e7a2270bec
+  # url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
+  url: https://github.com/conda-forge/conda-smithy/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: d4c86bf58795f5bc78ea996351de82de43f1e8e84e9e42c43ce797eb6a6afeff
+  patches:
+    # backport of https://github.com/conda-forge/conda-smithy/pull/2468
+    - patches/0001-Revert-fix-unset-these-env-vars.patch
+    - patches/0002-add-work-around-for-conda-build-inserting-spurious-v.patch
+    - patches/0003-turn-debug-hint-into-reusable-context-manager.patch
+    - patches/0004-avoid-hard-dependence-on-TEMP-environment-variable-o.patch
 
 build:
   number: 0

@@ -1,0 +1,24 @@
+From 93756f0d44e49480df006f2205bb1d9cf1d50150 Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Fri, 13 Feb 2026 17:33:13 +1100
+Subject: [PATCH 2/4] add work-around for conda-build inserting spurious
+ variants
+
+---
+ conda_smithy/configure_feedstock.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/conda_smithy/configure_feedstock.py b/conda_smithy/configure_feedstock.py
+index afde11b1..ea9fc8a5 100644
+--- a/conda_smithy/configure_feedstock.py
++++ b/conda_smithy/configure_feedstock.py
+@@ -1147,6 +1147,9 @@ def _render_ci_provider(
+             platform=platform,
+             arch=arch,
+         )
++        # work-around for spurious values inserted by conda-build despite
++        # exclusive_config_file, see https://github.com/conda/conda-build/issues/5922
++        config.variant = {}
+ 
+         # Get the combined variants from normal variant locations prior to running migrations
+         (
