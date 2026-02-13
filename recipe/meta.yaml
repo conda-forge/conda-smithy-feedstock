@@ -1,4 +1,4 @@
-{% set version = "3.54.2" %}
+{% set version = "3.55.0" %}
 
 package:
   name: conda-smithy
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 0bea9a79691f89313216b0e9c7c58a1508046356b2d6a082555f00dcd580309c
+  sha256: 6560f5c548ee582e7803036d20bccea2430c87d0fa48ebbd23ebd2e7a2270bec
 
 build:
-  number: 1
+  number: 0
   noarch: python
   string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
@@ -58,8 +58,8 @@ requirements:
     - cirun >=0.30
     - exceptiongroup
     - jsonschema
-    # temporary upper bound due to https://github.com/conda/rattler/issues/2023
-    - py-rattler >=0.21,<0.22
+    # py-rattler's API subject to change, pin to minor
+    - py-rattler >=0.22,<0.23
     - rattler-build-conda-compat >=1.4.5,<2.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
@@ -83,6 +83,7 @@ test:
     - conda-forge-tick      # [unix]
     - conda-souschef
     - conda-recipe-manager
+    - git
   source_files:
     - tests/
     - pyproject.toml  # for pytest config bits
@@ -99,6 +100,11 @@ test:
     - unset CONDA_PERL
     - >-
       pytest tests --ignore tests/test_anaconda_token_rotation.py --ignore tests/test_cli.py -k "not test_maintainer_team_exists and not test_github_actions_pins and not test_maintainer_exists and not test_lint_recipe_parses_spacing and not test_schema_no_empty_properties_for_bot"
+    # test that rerender works
+    - git clone https://github.com/conda-forge/conda-smithy-feedstock the_feedstock
+    - cd the_feedstock
+    - conda smithy rerender
+    - conda smithy lint --conda-forge
 
 about:
   home: https://github.com/conda-forge/conda-smithy
