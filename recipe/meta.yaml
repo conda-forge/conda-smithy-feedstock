@@ -93,8 +93,8 @@ test:
     # test that rerender works
     - git clone https://github.com/conda-forge/conda-smithy-feedstock the_feedstock
     - cd the_feedstock
-    - conda-smithy rerender
-    - conda-smithy lint --conda-forge
+    - python -m conda smithy rerender
+    - python -m conda smithy lint --conda-forge
 
 about:
   home: https://github.com/conda-forge/conda-smithy
