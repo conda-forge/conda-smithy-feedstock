@@ -89,7 +89,7 @@ test:
     - pyproject.toml  # for pytest config bits
   commands:
     - python -m conda smithy --help
-    - python -m pytest tests --ignore tests/test_anaconda_token_rotation.py --ignore tests/test_cli.py -k "not test_maintainer_team_exists and not test_github_actions_pins and not test_maintainer_exists and not test_lint_recipe_parses_spacing and not test_schema_no_empty_properties_for_bot"
+    - python -m pytest tests --ignore tests/test_anaconda_token_rotation.py --ignore tests/test_cli.py -k "not test_maintainer_team_exists and not test_github_actions_pins and not test_maintainer_exists and not test_lint_recipe_parses_spacing and not test_schema_no_empty_properties_for_bot"  # [not win]
     # test that rerender works
     - git clone https://github.com/conda-forge/conda-smithy-feedstock the_feedstock
     - cd the_feedstock
