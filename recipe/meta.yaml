@@ -1,4 +1,5 @@
-{% set version = "3.60.0" %}
+{% set version = "3.61.0" %}
+{% set python_min = "3.11" %}
 
 package:
   name: conda-smithy
@@ -6,7 +7,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 5d77c1758f641b912cf75b8754d3c113fb77f42b8e2f301519f58e204c20d3f2
+  sha256: 60f90ddbeb2e72521fa0f5b19afb137bd320284b1aefd3d1aa985ab3bdf75be0
 
 build:
   number: 0
@@ -24,9 +25,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools >=45
+    - setuptools >=80
     - setuptools-scm >=8.1
-    - tomli >=1.0.0
   run:
     - __unix                          # [unix]
     - __win                           # [win]
@@ -60,7 +60,7 @@ requirements:
     - jsonschema
     # py-rattler's API subject to change, pin to minor
     - py-rattler >=0.22,<0.23
-    - rattler-build-conda-compat >=1.4.5,<2.0.0a0
+    - rattler-build-conda-compat >=1.4.12,<2.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
     # xref: https://github.com/conda-forge/conda-smithy-feedstock/issues/248
