@@ -1,4 +1,4 @@
-{% set version = "3.61.2" %}
+{% set version = "3.62.0" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: c11c866132a0916c7c866676c2bc31a96e4e847338cc6d1139697f29343542c0
+  sha256: 994053bb29375bce6bf4fdea01ffd59e768c66b90d444263b71e32a91ec02d82
 
 build:
   number: 0
@@ -33,7 +33,7 @@ requirements:
     - python >={{ python_min }}
     - setuptools
     - conda >=22.11.1
-    - conda-build >=25.3.1
+    - conda-build >=26.3.0
     - conda-package-handling >=1.9.0
     - jinja2
     - requests
@@ -87,6 +87,7 @@ test:
   source_files:
     - tests/
     - pyproject.toml  # for pytest config bits
+    - conda_smithy/data/linter-messages.json  # for bug in testing code - remove on next release (https://github.com/conda-forge/conda-smithy/pull/2560)
   commands:
     - python -m conda smithy --help
     - python -m pytest tests --ignore tests/test_anaconda_token_rotation.py --ignore tests/test_cli.py -k "not test_maintainer_team_exists and not test_github_actions_pins and not test_maintainer_exists and not test_lint_recipe_parses_spacing and not test_schema_no_empty_properties_for_bot"  # [not win]
