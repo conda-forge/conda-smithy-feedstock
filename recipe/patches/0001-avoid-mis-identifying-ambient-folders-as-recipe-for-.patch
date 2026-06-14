@@ -1,0 +1,23 @@
+From 2fa2f8c71c194c4596eb329d59358aec5aeb63fe Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Mon, 15 Jun 2026 10:22:52 +1100
+Subject: [PATCH] avoid mis-identifying ambient folders as recipe for linter
+ test
+
+---
+ conda_smithy/linter/lints.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/conda_smithy/linter/lints.py b/conda_smithy/linter/lints.py
+index a7e3597a..73716391 100644
+--- a/conda_smithy/linter/lints.py
++++ b/conda_smithy/linter/lints.py
+@@ -97,7 +97,7 @@ def lint_recipe_have_tests(
+         return
+ 
+     if not any(key in TEST_KEYS for key in test_section):
+-        a_test_file_exists = recipe_dir is not None and any(
++        a_test_file_exists = bool(recipe_dir) and any(
+             os.path.exists(os.path.join(recipe_dir, test_file))
+             for test_file in TEST_FILES
+         )
