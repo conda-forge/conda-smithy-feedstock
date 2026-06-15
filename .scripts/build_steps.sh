@@ -36,6 +36,7 @@ mv /opt/conda/conda-meta/history /opt/conda/conda-meta/history.$(date +%Y-%m-%d-
 echo > /opt/conda/conda-meta/history
 conda list
 conda uninstall conda-package-handling --force --yes
+conda uninstall conda-package-streaming --force --yes
 # pip uninstall conda-package-handling
 micromamba install --root-prefix ~/.conda --prefix /opt/conda \
     --yes --override-channels --channel conda-forge --strict-channel-priority \
