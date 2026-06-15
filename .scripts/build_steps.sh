@@ -34,9 +34,9 @@ solver: libmamba
 CONDARC
 mv /opt/conda/conda-meta/history /opt/conda/conda-meta/history.$(date +%Y-%m-%d-%H-%M-%S)
 echo > /opt/conda/conda-meta/history
-micromamba list
-micromamba uninstall conda-package-handling --force --yes
-pip uninstall conda-package-handling
+conda list
+conda uninstall conda-package-handling --force --yes
+# pip uninstall conda-package-handling
 micromamba install --root-prefix ~/.conda --prefix /opt/conda \
     --yes --override-channels --channel conda-forge --strict-channel-priority \
     pip  python=3.12 conda-build conda-forge-ci-setup=4 "conda-package-handling<2.5.0"
