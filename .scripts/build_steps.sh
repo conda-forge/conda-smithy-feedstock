@@ -35,12 +35,15 @@ CONDARC
 mv /opt/conda/conda-meta/history /opt/conda/conda-meta/history.$(date +%Y-%m-%d-%H-%M-%S)
 echo > /opt/conda/conda-meta/history
 conda list
-conda uninstall conda-package-handling --force --yes
-conda uninstall conda-package-streaming --force --yes
+# conda uninstall conda-package-handling --force --yes
+# conda uninstall conda-package-streaming --force --yes
 # pip uninstall conda-package-handling
-micromamba install --root-prefix ~/.conda --prefix /opt/conda \
+# micromamba install --root-prefix ~/.conda --prefix /opt/conda \
+#     --yes --override-channels --channel conda-forge --strict-channel-priority \
+#     pip  python=3.12 conda-build conda-forge-ci-setup=4 "conda-package-handling<2.5.0" "conda-package-streaming==0.12.0"
+conda install --prefix /opt/conda \
     --yes --override-channels --channel conda-forge --strict-channel-priority \
-    pip  python=3.12 conda-build conda-forge-ci-setup=4 "conda-package-handling<2.5.0" "conda-package-streaming==0.12.0"
+    pip  python=3.12 conda-build conda-forge-ci-setup=4 "conda-package-handling==2.4.0" "conda-package-streaming==0.12.0"    
 export CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED=1
 
 # set up the condarc
