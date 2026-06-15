@@ -43,7 +43,9 @@ conda list
 #     pip  python=3.12 conda-build conda-forge-ci-setup=4 "conda-package-handling<2.5.0" "conda-package-streaming==0.12.0"
 conda install --prefix /opt/conda \
     --yes --override-channels --channel conda-forge --strict-channel-priority \
-    pip  python=3.12 conda=26.3 conda-build=26.3 conda-forge-ci-setup=4 "conda-package-handling<2.4.0" "conda-package-streaming<0.13.0"
+    pip  python=3.12 conda=26.3 conda-build=26.3 conda-forge-ci-setup=4 \
+    "conda-package-handling<2.4.0" "conda-package-streaming<0.13.0" \
+    "libmamba==2.6.2"
 export CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED=1
 
 # set up the condarc
