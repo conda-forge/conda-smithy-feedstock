@@ -6,14 +6,16 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 1e9bff6fba2831b4f9d237cac259bcfc05d650e526a3483bb262337d3c14189f
+  # FIXME: Revert to static artifacts in next release
+  # url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
+  url: https://github.com/conda-forge/conda-smithy/archive/v{{ version }}.tar.gz
+  sha256: aefe1aae63c4d48abb0df9059083b41a3168ec46763e1efd254b03393d28f6ca
   patches:
     # backport https://github.com/conda-forge/conda-smithy/pull/2595
     - patches/0001-avoid-mis-identifying-ambient-folders-as-recipe-for-.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
