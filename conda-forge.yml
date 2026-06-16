@@ -13,3 +13,4 @@ noarch_platforms:
 provider:
   linux_64: github_actions
   win_64: github_actions
+remote_ci_setup: ["conda-forge-ci-setup=4", "conda-package-handling<2.5.0"]
