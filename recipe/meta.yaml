@@ -10,9 +10,6 @@ source:
   # url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
   url: https://github.com/conda-forge/conda-smithy/archive/v{{ version }}.tar.gz
   sha256: e026e3c2d54ba1b4acacc862ba3af90246dee3069a6509f53edadd70b2130bd0
-  patches:
-    # backport https://github.com/conda-forge/conda-smithy/pull/2595
-    - patches/0001-avoid-mis-identifying-ambient-folders-as-recipe-for-.patch
 
 build:
   number: 0
@@ -64,7 +61,7 @@ requirements:
     - exceptiongroup
     - jsonschema
     # py-rattler's API subject to change, pin to minor
-    - py-rattler >=0.22,<0.23
+    - py-rattler >=0.22.0,<0.26.0a0
     - rattler-build-conda-compat >=1.4.15,<2.0.0a0
   run_constrained:
     # For more details about `shellcheck`, please see this issue.
