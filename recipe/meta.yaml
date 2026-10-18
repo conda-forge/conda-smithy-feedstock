@@ -1,4 +1,4 @@
-{% set version = "2026.9.23" %}
+{% set version = "2026.10.19" %}
 
 package:
   name: conda-smithy
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/conda-forge/conda-smithy/releases/download/v{{ version }}/conda_smithy-{{ version }}.tar.gz
-  sha256: 7ec886edd2a5388e0e6330546bb8be0a00bf2eb6df97524f185791440cb926bb
+  sha256: ae1688c7a4c4394728255f5294103bfbd8b7f3aad9b4bcc02c9f6f469bcd9007
 
 build:
   number: 0
@@ -48,7 +48,7 @@ requirements:
     - license-expression
     - libarchive
     # py-rattler's API subject to change, pin to minor
-    - py-rattler >=0.22.0,<0.26.0a0
+    - py-rattler >=0.22.0,<0.28.0a0
     - pycryptodome
     - pygit2    
     - pygithub >=2,<3
