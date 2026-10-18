@@ -48,7 +48,7 @@ requirements:
     - license-expression
     - libarchive
     # py-rattler's API subject to change, pin to minor
-    - py-rattler >=0.22.0,<0.26.0a0
+    - py-rattler >=0.22.0,<0.28.0a0
     - pycryptodome
     - pygit2    
     - pygithub >=2,<3
