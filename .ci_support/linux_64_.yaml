@@ -1,5 +1,3 @@
-build_platform:
-- linux-64
 channel_sources:
 - conda-forge
 channel_targets:
