@@ -9,7 +9,7 @@ source:
   sha256: 78ff042746814de35456f30031fe4e323f294919ea899e7ec56b67c467905158
 
 build:
-  number: 0
+  number: 1
   noarch: python
   string: {{ "win" if win else "unix" }}_pyh{{ PKG_HASH }}_{{ PKG_BUILDNUM }}
   script:
@@ -48,7 +48,7 @@ requirements:
     - license-expression
     - libarchive
     # py-rattler's API subject to change, pin to minor
-    - py-rattler >=0.22.0,<0.28.0a0
+    - py-rattler >=0.22.0,<0.29.0a0
     - pycryptodome
     - pygit2    
     - pygithub >=2,<3
